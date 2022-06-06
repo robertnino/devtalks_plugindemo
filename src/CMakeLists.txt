@@ -1,0 +1,17 @@
+SET(SOURCES
+	PluginLoader.cpp
+	Plugin.cpp
+	main.cpp
+)
+
+SET(HEADERS
+	PluginLoader.h
+	Plugin.h
+)
+
+ADD_EXECUTABLE(${PROJECT_NAME} ${SOURCES})
+ADD_LIBRARY(plugin Plugin.cpp)
+
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} dl)
+
+INSTALL(TARGETS ${PROJECT_NAME} DESTINATION bin)
